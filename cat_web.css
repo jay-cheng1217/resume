@@ -1,0 +1,364 @@
+/* $color_blue: #282f44 ;
+$color_brown: #e6af2e ;
+$color_yellow: #f5d061 ;
+$color_white: #ececec;
+// ---------------------------  */
+
+/* @mixin ab_center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+@mixin size($w,$h) {
+    width: $w;
+    height: $h;
+}
+// ------------------------- */
+
+html,body{
+     /* 捲軸不要左右移動 */
+    overflow-x: hidden;
+    font-size: 16px;
+    /* height: 150%; */
+    font-family: 'Oswald';
+}
+header,#section_about,#section_service,#section_works{
+    /* display: none; */
+}
+.navbar,a{
+    color: black;
+    background-color: transparent;
+    transition: 0.5s;
+}
+a:hover{
+    color: #e6af2e;
+}
+.navbar_top{
+    background-color: white;
+    transition: 0.5s;
+}
+
+
+header{
+    position: relative;
+    background-color: #282f44 ;
+    text-align: center;
+}
+header>.container>.icon{
+    width: 80%;
+    max-width: 250px;
+    padding: 250px 0;
+}
+.mountain{
+    /* 絕對定位移動 否則會出現在最下方 */
+    position: absolute;
+    bottom: 0px;
+    right: -20px;
+    animation: upin 2s both;
+    /* width: 100%; */
+}
+
+
+/* 載入時mountain動畫 */
+@keyframes upin{
+    0%{
+        bottom: -100px;
+    }
+    100%{
+        bottom: 0px;
+    }
+}
+.explore{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #f5d061;
+    top: 85%;
+    opacity: 1;
+    transition: 0.5s;
+    
+}
+/*  explore後加上箭頭v*/
+.explore::after{
+    /* block可換行 */
+    display: block; 
+    content: 'v';
+    transform: scaleX(1.2) scaleY(0.5);
+}
+
+.at_top{
+    opacity: 0;
+}
+/* ------------------------------------------- */
+section{
+    padding: 60px;
+    position: relative;
+}
+#section_about{
+    background-color: #e6af2e;
+    
+}
+
+#cat {
+    width: 30%;
+    min-width: 300px;
+    position: absolute;
+    right: 20px;
+    bottom: -3px;
+  }
+section#section_about #cross {
+    position: absolute;
+    z-index: 6;
+}
+/* cross設置叉叉 */
+section#section_about #cross:before, section#section_about #cross:after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 60px;
+    height: 15px;
+    background-color: #FFF;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  section#section_about #cross:after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+#section_about>.container>.row{
+    height: 150px;
+    color: black;
+    
+    /* border: solid 1px; */
+}
+.mountain_bottom,.mountain_ice{
+    position: absolute;
+    width: 60%;
+    top: 99%;
+    z-index: 3;
+}
+#section_about>.container{
+    transform: rotate(15deg) ;
+}
+@media screen and (max-width: 900px) {
+    #section_about .r1text{
+        font-size: 50px;
+    }
+    #section_about .r2text{
+        font-size: 15px;
+        
+        
+    }
+    #section_about .r3text{
+        font-size: 30px;
+        /* height: 900px; */
+        margin-top: 90px;
+        
+    }
+  }
+.r1text{
+    
+    font-size: 80px;
+    transition: 0.1s;
+    
+}
+.r2text{
+    font-size: 35px;
+    transition: 0.2s;
+    
+}
+.r3text{
+    font-size: 50px;
+    text-align: right;
+    transition: 0.3s;
+   
+}
+.btn_area{
+    height: 150px;
+}
+.btn_area>a{
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) ;
+}
+.tri{
+    transform: rotate(-15deg);
+}
+.tri1{
+    width: 300px;
+}
+.tri2{
+    width: 20px;
+    margin-left: 20px;
+}
+.tri3{
+    width: 150px;
+    margin-left: 70%;
+}
+.tri4{
+    width: 70px;
+    margin-left: 100%;
+}
+.tri5{
+    width: 80px;
+    margin-left: 100%;
+}
+
+/* ------------------------------------------- */
+
+#section_service{
+    background-color: #ececec;
+}
+.col-sm-4{
+    text-align: center;
+}
+.icon_service{
+    width: 60%;
+}
+
+/* ------------------------------------------- */
+#section_works{
+    background-color: #ececec;
+}
+@media screen and (max-width: 700px) {
+    #section_works .work_left .work{
+      height: 480px;
+      width: 100%;
+    }
+  }
+#section_works>.container>.row>.col-sm-6{
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+}
+.work:before,.work_left:before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 100%;width: 100%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 5;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.work,.work_left{
+    
+    min-height: 230px;
+    cursor: pointer;
+    position: relative;
+    padding: 5px;
+}
+.texts{
+    color: #ececec;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 6;
+    opacity: 0;
+    transition: 0.5s;
+}
+ .texts:hover,.work:hover:before,.work_left:hover:before {
+    opacity: 1;
+  }
+.work>img,.work_left>img{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.mountain_ice{
+    right: 0;
+}
+
+/* ------------------------------------------- */
+
+#section_contact{
+    
+    background-color: #282f44 ;
+    color: #ececec;
+    overflow: hidden;
+}
+@media screen and (max-width: 700px) {
+    #section_contact .mailbody{
+      height: 380px;
+      width: 100%;
+    }
+  }
+section#section_contact>.cat {
+    width: 150px;
+    position: absolute;
+    bottom: -50px;
+    transition: 0.5s;
+  }
+#cat_blue {
+    right: 240px;
+    z-index: 4;
+}
+#cat_grey {
+    right: 100px;
+  }
+#cat_yellow {
+    right: 170px;
+  }
+.mail{
+    height: 400px;
+}
+.mailcover{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    transform: rotate(5deg) ;
+}
+.mailcover>img{
+    transform: translate(-60%,-45%);
+    
+}
+.mailbody{
+    position: absolute;
+    background-color: #ececec;
+    color: #282f44;
+    padding: 40px;
+    font-weight: 800;
+    width: 90%;
+    z-index: 7;
+
+}
+input,textarea{
+    display: block;
+    background: transparent;
+    border: #282f44 solid;
+    margin-left: 10px;
+
+}
+textarea{
+    height: 130px;
+    width: 100%;
+}
+
+.footer{
+    background-color:#e6af2e ;
+    position: relative;
+    text-align: center;
+}
+.footer>img{
+ 
+
+    width: 80%;
+    max-width: 250px;
+    padding: 80px 0;
+}

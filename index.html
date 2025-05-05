@@ -1,1 +1,444 @@
-test
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Hsu Chih Cheng</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+   <style>
+       html,body{
+           background: #000;
+           margin: 0px;
+           padding: 0px;
+           
+       }
+       .jumbotron{
+        padding-bottom: 20px;
+        position: relative;
+        min-height: 400px;
+       }
+       .tit_name{
+        font-size:300px;
+        position:absolute;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        bottom:100px;
+        font-weight:100;
+        color:rgba(0,0,0,0.04);
+        animation: upin 2s both;
+       }
+
+       @keyframes upin{
+            0%{
+                bottom: -100px;
+            }
+            100%{
+                bottom: 0px;
+            }
+        }
+        .row,.col-4{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+            
+        }
+        .jumbotron>.container>.row>.col-4{
+            /* border: solid 1px; */
+            font-size: 30px;
+            margin-bottom: -25px;
+            color: black;
+        }
+        .pic>img{
+            border: solid 3px #1c1e21;
+            border-radius: 50%;
+            width: 200px; height: 200px;
+            
+        }
+        .line{
+            border: solid 0.5px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .w-100{
+            padding-top: 20px;
+        }
+        .name{
+            font-size: 30px;
+        }
+        #section-about,#section-works,#section-skills{
+            /* border: 1px  solid; */
+            margin: 10px;
+            border-radius: 5px;
+            padding: 20px;
+            color: antiquewhite;
+            background: #1c1e21;
+        }
+        .Eduction,.Experience{
+            padding: 10px 30px;
+           text-align: center;
+            
+        }
+        .about_me{
+            padding: 10px 30px;
+            text-align: justify;
+         
+        }
+        .about_list{
+            font-size: 30px;
+        }
+        /* .col-6{
+            border: 1px solid;
+        } */
+
+        .thumbnail{
+            
+            text-align: center;
+            opacity: 0.5;
+            transition: 1s;
+        }
+        #section-works{
+            min-height: 300px;
+            padding: 20px 0;
+        }
+        .work_img{
+            height: 150px;
+            width: 90%;
+            transition: 1s;
+            border-radius: 10px;
+            background-color: #f5d061;
+        }
+        .thumbnail,.work_img:hover{
+            opacity: 5;
+            transition: 1s;
+            width: 100%;
+            min-height: 170px;
+        }
+        #section-skills>.row{
+            display: flex;
+            justify-content:flex-start;
+            align-items: center;
+            
+        }
+        #section-skills>.row>.col-4{
+            padding-bottom: 20px;
+        }
+        .skill{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            border: 15px solid;
+            border-radius: 50%;
+            width: 120px;height: 120px;
+        }
+        .skill_p{
+            transform:rotate(-45deg);
+            font-size: 25px;
+        }
+        .skill1{
+            border-color: gold gold gold transparent;
+            transform:rotate(45deg);
+        
+        }
+        .skill2{
+            border-color: gold gold gold transparent;
+            transform:rotate(45deg);
+        }
+        .skill3{
+            border-color: gold gold gold transparent;
+            transform:rotate(45deg);
+        }
+        .skill4{
+            border-color: gold gold gold transparent;
+            transform:rotate(45deg);
+        }
+        .skill5{
+            border-color: gold gold gold transparent;
+            transform:rotate(45deg);
+        }
+        .skill6{
+            border-color: gold gold transparent transparent;
+            transform:rotate(45deg);
+        }
+        .skill7{
+            border-color: gold gold transparent  transparent;
+            transform:rotate(45deg);
+        }
+        .skill8{
+            border-color: gold transparent transparent transparent;
+            transform:rotate(45deg);
+        }
+        .skill9{
+            border-color: gold transparent transparent transparent;
+            transform:rotate(45deg);
+        }
+        
+        .footer{
+            display: flex;
+            flex-direction: column;
+            background-color: #272833;
+            color: rgba(255, 255, 255, 0.5);
+            height: 150px;
+            justify-content: center;
+            align-items: center;
+        }
+        .fa{
+            padding: 10px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+  <body>
+      
+    <nav class="navbar navbar-expand navbar-light bg-light fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a  class="navbar-brand" href="#header"> Hsu Chih Cheng_web</a>
+            </div>
+            <div class="">
+              <ul class="nav navbar-nav">
+                <!-- active表示當前頁面 -->
+                <li class="nav-item">
+                  <a class="nav-link" href="#section-about">簡介</a>
+                </li>
+                <li class="nav-item ">
+                  <a class="nav-link" href="#section-works">作品集</a>
+                </li>
+                <li class="nav-item ">
+                  <a class="nav-link" href="#section-skills">技能</a>
+                </li>
+              </ul>
+            </div>
+            
+        </div>
+      </nav>
+      
+    <div id='header' class="jumbotron">
+        <div class="tit_name">CHENG</div>
+        <div class="container">
+            
+            <div class="row">
+                <div class="pic">
+                    <img src="pic.jpg" alt="">
+                </div>
+                <div class="w-100"></div>
+                <div class="name">許智誠</div>
+                <div class="name en">(HSU CHIH CHENG)</div>
+                <div class="w-100"></div>
+                <div class="line"></div>
+            </div>
+            <!-- <div class="row">
+                <div class="col-4"><a href="#section-about" class="btn btn-primary btn-lg">簡介</a></div>
+                <div class="col-4"><a href="#section-works" class="btn btn-primary btn-lg">作品集</a></div>
+                <div class="col-4"><a href="#section-skills" class="btn btn-primary btn-lg">技能</a></div>
+
+            </div> -->
+        </div>
+    </div>
+    
+    <div class="container">
+        <section id='section-about' >
+            <div>簡介</div>
+            <!-- <i class="fa fa-birthday-cake"></i>1993/12/17 -->
+            
+            <div class="row Eduction">
+            <div class="about_list">Eduction</div>
+            <div class="line"></div>
+                <div class="col-6 left">
+                    <div class="row">
+                        <div class="col-6">
+                            <p>2018/9-2020/6</p> 
+                        </div>
+                        <div class="col-6">
+                           <p>國立中興大學</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 right">
+                    <p>科技管理研究所-電子商務班</p>
+                </div>
+            
+                <div class="col-6 left">
+                    <div class="row">
+                        <div class="col-6">
+                            <p>2012/9-2016/6</p> 
+                        </div>
+                        <div class="col-6">
+                           <p>國立台北護理健康大學</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 right">
+                    <p>資訊管理系</p>
+                </div>
+            </div>
+            <div class="row Experience">
+            <div class="about_list">Experience</div>
+            <div class="line"></div>
+            <div class="col-6 left">
+                <div class="row">
+                    <div class="col-6">
+                        <p>2021/3-至今</p> 
+                    </div>
+                    <div class="col-6">
+                    <p>華碩電腦</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 right">
+                <p>後端工程師</p>
+            </div>
+                <div class="col-6 left">
+                    <div class="row">
+                        <div class="col-6">
+                            <p>2020/6-2021/3</p> 
+                        </div>
+                        <div class="col-6">
+                        <p>正大聯合會計師事務所</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 right">
+                    <p>軟體工程師</p>
+                </div>
+            </div>
+            <div class="row about_me">
+                <div class="about_list">About</div>
+                <div class="line"></div>
+                <div>
+                    <p>
+                        你好，我是許智誠，畢業於中興大學科技管理研究所，學期間除管理課程外，也跨領域學習大數據分析與 Python 開發。
+                        大學就讀北護大資管系，累積 C#、HTML、PHP 等程式基礎，並曾實習網站後台管理。畢業後於正大會計師事務所擔任軟體工程師，
+                        現職為華碩後端工程師，負責 Event 系統開發、API 架構重構與 CI/CD 流程建立。我對新技術保持好奇與實作熱情，期望在軟體領域持續成長，
+                        為貴公司貢獻所長。
+                    </p>
+                </div>
+            </div> 
+                
+        </section>
+
+        <section id='section-works' >
+            <div>作品集</div>
+            <div class="row">
+                <div class="col-md-12 col-lg-4 thumbnail">
+                    <h3 class="caption">RWD</h3>
+                    <div class="line"></div>
+                    <div>
+                        <a href="cat_web.html"><img class="work_img" src="http://awiclass.monoame.com/img/webpic/w_icon_black.svg" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-4 thumbnail">
+                    <h3 class="caption">API串接</h3>
+                    <div class="line"></div>
+                    <div>
+                        <a href="http://localhost:3002/" target="_blank">
+                            <img class="work_img" src="movie.svg" alt="">
+                        </a>
+                    </div>                    
+                </div>
+                <div class="col-md-12 col-lg-4 thumbnail">
+                    <h3 class="caption">Vue.js</h3>
+                    <div class="line"></div>
+                    <div>
+                        <a href="book.html"><img class="work_img" src="bki_img.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id='section-skills'>
+            <div>技能</div>
+            <div class="row justify-content-center">
+              <div class="col-4 mb-3 d-flex justify-content-center">
+                <div class="skill skill1">
+                  <div class="skill_p">C#.NET</div>
+                </div>
+              </div>
+          
+              <div class="col-4 mb-3 d-flex justify-content-center">
+                <div class="skill skill2">
+                  <div class="skill_p" style="font-size: 23px;">MS-SQL</div>
+                </div>
+              </div>
+          
+              <div class="col-4 mb-3 d-flex justify-content-center">
+                <div class="skill skill3">
+                  <div class="skill_p">HTML</div>
+                </div>
+              </div>
+          
+              <div class="col-4 mb-3 d-flex justify-content-center">
+                <div class="skill skill4">
+                  <div class="skill_p" style="font-size: 22px;">ASP.NET</div>
+                </div>
+              </div>
+          
+              <div class="col-4 mb-3 d-flex justify-content-center">
+                <div class="skill skill5">
+                  <div class="skill_p">JS</div>
+                </div>
+              </div>
+          
+              <div class="col-4 mb-3 d-flex justify-content-center">
+                <div class="skill skill6">
+                  <div class="skill_p">jQuery</div>
+                </div>
+              </div>
+          
+              <div class="col-4 mb-3 d-flex justify-content-center">
+                <div class="skill skill7">
+                  <div class="skill_p">Vue.js</div>
+                </div>
+              </div>
+          
+              <div class="col-4 mb-3 d-flex justify-content-center">
+                <div class="skill skill8">
+                  <div class="skill_p">node.js</div>
+                </div>
+              </div>
+          
+              <div class="col-4 mb-3 d-flex justify-content-center">
+                <div class="skill skill9">
+                  <div class="skill_p">python</div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          
+    </div>
+
+
+    <div class="footer">
+        <div>
+            <a href="https://www.linkedin.com/in/jaycheng821217/" class="fa fa-linkedin"></a>
+            <a href="mailto:jayecheng1217@gmail.com" class="fa fa-envelope"></a>
+        </div>
+        
+        <br>
+        <p>© 許智誠 HSU CHIH CHENG 2025</p>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    
+    <script>
+          $(document).on('click','.nav-link,.navbar-brand',function(e){
+            e.preventDefault();
+            var target=$(this).attr('href');
+            // console.log(target);
+            $("html,body").animate({
+                scrollTop: $(target).offset().top
+            },1000)
+      
+        });
+    </script>
+
+</body>
+</html>

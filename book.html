@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>博客來Vue</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body{
+            padding: 0px;
+            margin: 0;
+            background-color: darkgoldenrod;
+        }
+        .container{
+            text-align: center;
+        }
+        .header{
+            background-color:#f5d061;
+        }
+        .header>a{
+            text-align: left;
+        }
+        .row{
+            background-color: #ffffFF
+        }
+        a{
+            color:#555;
+        }
+        .book{
+            
+            display: inline-block;
+            padding: 10px 0px;
+            text-align: center;
+            width: 170px;
+            border: solid 1px #bbb;
+            margin: 0;
+        }
+        .book>img{
+            width: 100%;
+            padding-bottom: 10px;
+        }
+        .name{
+            height: 50px;
+            font-size: 18px;
+            margin: 0;
+            
+        }
+        .name>a{
+            color: #222;
+        }
+        .author{
+            margin-top: 5px;
+        }
+        .author,.price,.publish,.date{
+            font-weight: normal;
+            margin: 0;
+            font-size: 14px;
+            columns: #555;
+        }
+        .red{
+            font-weight: 900;
+            color: #d93800;
+        }
+        .book.detail{
+            display: block;
+            width: 80%;
+            text-align: left;
+            padding: 10px;
+        }
+        .book.detail>img{
+            width: 150px;
+            display: inline-block;
+            vertical-align: middle;
+        
+        }
+        .book.detail>.info{
+            display: inline-block;
+            width: calc(100% - 150px - 20px);
+            vertical-align: middle;
+        }
+        .info{
+            padding-bottom: 10px;
+        }
+        .col-sm-4{
+            width: 220px;
+            height: 500px;
+            vertical-align: top;
+        }
+        .detail.col-sm-4{
+            height: initial;
+            padding: 20px;
+        }
+        .detail.col-sm-4>img{
+            width: 220px;
+        }
+        .detail.col-sm-4>.info{
+            width: calc(100% - 220px - 20px);
+        }
+        label{
+            height: 40px;
+        }
+        span{
+            border: none;
+            line-height: 30px;
+        }
+        
+    </style>
+
+  </head>
+  <body>
+    
+      <div class="container">
+          
+        <div id="app">
+            
+            <div class="header">
+                <a href="platform.html">Previous Page</a>
+                <h1>使用Vue.js計算呈現資料</h1>
+                <h3>博客來排行榜資料轉換html</h3>
+                <div>
+                    <a  href="https://www.books.com.tw/web/sys_saletopb/books/03/?loc=P_002_004" target="_blank"><img class="bki_icon" src="http://pk.ixpanel.com/images/pk/201108/0824/BOOKS.gif" alt=""></a>
+                </div>
+                <br>
+                
+                <label class="btn btn-info" for="detail">詳細模式
+                    <input type="checkbox" name="" id="detail" v-model="model_detail">
+                </label>
+                <label class="btn btn-info" for="">優惠價
+        
+                    <span v-for="(book,id) in books">
+                        <label v-bind:for="id+1">{{id+1}}</label>
+                        <input type="checkbox" name="" v-bind:id="id+1" v-model='book.is_discount'>
+                    </span>
+                </label>
+                <label class="btn btn-info" for="">
+                    <label for="smail">小呈現</label>
+                    <input type="radio" name="" id="smail" v-model='model_size' value="col-sm-3">
+                    <label for="big">大呈現</label>
+                    <input type="radio" name="" id="big" v-model='model_size' value="col-sm-4">
+                </label>
+            </div>
+            <!-- <h5>{{model_size}}</h5> -->
+            
+            <br>
+            <!-- <h5>{{model_detail}}</h5> -->
+            <!-- 多vue>class需中括號刮起來 -->
+            <div class="row">
+                <div v-for="book in books" v-bind:class="[(model_detail ? 'detail col-sm-12' : ''),model_size] " class="book ">
+                    <img v-bind:src='book.img'/> 
+                    <div class="info">
+                        <a v-bind:href="book.link_book" target="_blank">
+                            <h2 class="name">{{model_detail ? book.name:book.name.substring(0,14)}}</h2>
+                            <!-- <h2 class="name">{{book.name.substring(0,14)}}</h2> -->
+                        </a>
+                        <h4 class="author">作者：
+                            <a v-bind:href="book.link_author" target="_blank">{{book.author}}</a>
+                        </h4>
+                        <h4 class="publish" v-if="model_detail">出版社：
+                            {{book.publish_house}}
+                        </h4>
+                        <h4 class="price" v-if='book.is_discount'>
+                            <span>價錢：</span> 
+                            <span class="red">{{book.discount*100}}</span>
+                            <span>折</span>
+                            <span class="red">{{parseInt(book.price*book.discount)}}</span>
+                            <span>元</span>
+                        </h4>
+                        <h4 class="price" v-if='!book.is_discount'>
+                            <span>價錢：</span> 
+                            <span class="red">{{parseInt(book.price)}}</span>
+                            <span>元</span>
+                        </h4>
+                        <h4 class="date" v-if="model_detail">出版日期：
+                            {{book.date}}
+                        </h4>
+                    </div>
+                    
+        
+                </div>
+            </div>
+            </div>
+            
+      </div>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.js"></script>
+    <script src="book.js"></script>
+  </body>
+</html>
