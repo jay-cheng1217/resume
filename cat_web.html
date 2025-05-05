@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Yellow Studio</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="cat_web.css" />
+    
+    
+</head>
+  <body>
+<nav class="navbar navbar-expand fixed-top">
+  <a href="platform.html">Previous Page</a>
+  <div class="container">
+      <div class="navbar-header">
+          <a  class="navbar-brand" href="#header_index">Yellow Studio</a>
+          
+        </div>
+      <div class="">
+        <ul class="nav navbar-nav">
+          <!-- active表示當前頁面 -->
+          <li class="nav-item active">
+            <a class="nav-link" href="#section_about">About</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="#section_works">Works</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="#section_contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+      
+  </div>
+</nav>
+
+    <header id="header_index">
+      <div class="container">
+        <img src="http://awiclass.monoame.com/img/webpic/w_icon.svg" alt="" class="icon">  
+        <img src="http://awiclass.monoame.com/img/margin/m_index.svg" alt="" class="mountain">
+        <div class="explore">EXPLORE</div>
+      </div>
+    </header>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <section id="section_about">
+      <img src="http://awiclass.monoame.com/img/margin/m_about.svg" alt="" class="mountain_bottom">
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-sm-8 offset-sm-4 ">
+            <img src="http://awiclass.monoame.com/img/webpic/w_tri1.svg" alt="" class="tri tri1">
+            <h2 class="r1text">WORKS IN YELLOW</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <img src="http://awiclass.monoame.com/img/webpic/w_tri2.svg" alt="" class="tri tri2">
+          </div>
+          <div class="col-sm-8">
+            <img src="http://awiclass.monoame.com/img/webpic/w_tri3.svg" alt="" class="tri tri3">
+            <h3 class="r2text">YELLOW STUDIO-Website Design / Development</h3>
+            <h3 class="r2text">Interactive Art Design</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-8">
+            <h2 class="r3text">430 MORE SUCCESS CASES</h2>
+          </div>
+        </div> 
+        <div class="row">
+          <div class="col-sm-4 btn_area">
+            <a href="#section_works" class="btn btn-lg btn-default nav-link">More Store</a>
+            <img src="http://awiclass.monoame.com/img/webpic/w_tri4.svg" alt="" class="tri tri4">
+          </div>
+          <div class="col-sm-4">
+            <img src="http://awiclass.monoame.com/img/webpic/w_tri5.svg" alt="" class="tri tri5">
+          </div>
+        </div>
+      </div>
+      <img id="cat" src="http://awiclass.monoame.com/catpic/cat_left.png"/>
+      <div id="cross"></div>
+    </section>
+    <section id="section_service">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <h1>Service</h1>
+          </div>
+          <div class="col-sm-4">
+            <img src="http://awiclass.monoame.com/img/webpic/w_service_icon1.svg" alt="" class="icon_service">
+            <h3>CI/Vi Design</h3>
+          </div>
+          <div class="col-sm-4">
+            <img src="http://awiclass.monoame.com/img/webpic/w_service_icon2.svg" alt="" class="icon_service">
+            <h3>MotionGraphic</h3>
+          </div>
+          <div class="col-sm-4">
+            <img src="http://awiclass.monoame.com/img/webpic/w_service_icon3.svg" alt="" class="icon_service">
+            <h3>Web Development</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section_works">
+      <img class="mountain_ice" src="http://awiclass.monoame.com/img/margin/m_works.svg" alt="">
+      <div id="app" class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <h1>Works</h1>
+          </div>
+        </div>
+        <!-- 須加v-if判斷才能把vue帶進來-->
+        <div class="row" v-if='works.length>0'>
+          <div class="col-sm-6 work_left">
+            <img :src="works[1].img" alt="">
+            <div class="texts">
+              <h4 class="title">{{works[1].name}}</h4>
+              <p class="content" v-html="works[1].content.substr(0,39)"></p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="col-sm-6 work" v-for = 'w in works.slice(2,6)'>
+              <img :src="w.img" alt="">
+              <div class="texts">
+                <h4 class="title">{{w.name}}</h4>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id='section_contact'>
+      <img class="cat" id="cat_blue" src="http://awiclass.monoame.com/catpic/cat_blue_cat.png"/>
+      <img class="cat" id="cat_grey" src="http://awiclass.monoame.com/catpic/cat_grey_cat.png"/>
+      <img class="cat" id="cat_yellow" src="http://awiclass.monoame.com/catpic/cat_yellow_cat.png	"/>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="mail">
+              <div class="mailcover">
+                <img src="http://awiclass.monoame.com/img/webpic/w_mail_cover.svg" alt="">
+              </div>
+              <div class="mailbody">
+                <h5>Dear Yellow Studio</h5>
+                <label >Name</label>
+                <input type="text">
+                <label >Email</label>
+                <input type="text">
+                <label >Content</label>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <h2>CONTACT</h2>
+            <br>
+            <p>
+              If you have any question about us,<br>
+              Don`t hestitate to contact us !
+            </p>
+            <br>
+            <br>
+            <p>
+              YELLOWSTUDIO@gmail.com
+              <br>
+              ADDRESS: TAIWAN, TAIPEI , XORO Road
+              <br>
+              Phone: 02-12345678
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <footer class="footer">
+      <img src="http://awiclass.monoame.com/img/webpic/w_icon_black.svg" alt="">
+    </footer>
+    
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.js'></script>
+    <script src="cat_web.js"></script>
+  </body>
+</html>

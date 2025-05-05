@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - A Pen by  cheng</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oswald:300,400,700'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<nav class="navbar navbar-default navbar-fixed-top at_top">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><span class="sr-only">Toggle navigation      </span><span class="icon-bar">       </span><span class="icon-bar">   </span><span class="icon-bar"></span></button><a class="navbar-brand" href="#header_index">Yellow Studio</a>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#section_about">About</a><span class="sr-only"></span></li>
+        <li><a href="#section_works">Work </a><span class="sr-only"></span></li>
+        <li><a href="#section_contact">Contact</a><span class="sr-only"></span></li>
+      </ul>
+    </div>
+    <!-- /.nav-collapse-->
+  </div>
+</nav>
+<header id="header_index">
+  <div class="container"><img class="icon" src="http://awiclass.monoame.com/img/webpic/w_icon.svg"/><img class="mountain" src="http://awiclass.monoame.com/img/margin/m_index.svg"/>
+    <div class="explore at_top">EXPLORE</div>
+  </div>
+</header>
+<section id="section_about">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-4"><img class="tri tri1" src="http://awiclass.monoame.com/img/webpic/w_tri1.svg"/>
+        <h2 class="text1">WORKS IN YELLOW</h2>
+      </div>
+    </div>
+    <div class="row"> 
+      <div class="col-sm-4"><img class="tri tri2" src="http://awiclass.monoame.com/img/webpic/w_tri2.svg"/></div>
+      <div class="col-sm-8"><img class="tri tri3" src="http://awiclass.monoame.com/img/webpic/w_tri3.svg"/>
+        <h3 class="text2">YELLOW STUDIO-Website Design / Development</h3>
+        <h3 class="text2">Interactive Art Design</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8">
+        <h2 class="text3">430 MORE SUCCESS CASES</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 btn-area"><a class="btn btn-lg btn-default" href="#section_works">MORE STORY</a><img class="tri tri4" src="http://awiclass.monoame.com/img/webpic/w_tri4.svg"/></div>
+      <div class="col-sm-4"><img class="tri tri5" src="http://awiclass.monoame.com/img/webpic/w_tri5.svg"/></div>
+    </div>
+  </div><img class="bottommountain" src="http://awiclass.monoame.com/img/margin/m_about.svg"/>
+  <img id="cat" src="http://awiclass.monoame.com/catpic/cat_left.png"/>
+  <div id="cross"></div>
+</section>
+<section id="section_service">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Service</h1>
+      </div>
+      <div class="col-sm-4"><img class="icon_service" src="http://awiclass.monoame.com/img/webpic/w_service_icon1.svg"/>
+        <h3>CI/VI Design</h3>
+      </div>
+      <div class="col-sm-4"><img class="icon_service" src="http://awiclass.monoame.com/img/webpic/w_service_icon2.svg"/>
+        <h3>MotionGraphic</h3>
+      </div>
+      <div class="col-sm-4"><img class="icon_service" src="http://awiclass.monoame.com/img/webpic/w_service_icon3.svg"/>
+        <h3>Web Development</h3>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="section_works">
+  <div class="container" id="app">
+    <div class="row" v-if="works.length&gt;0">
+      <div class="col-sm-12">
+        <h1>Works</h1>
+      </div>
+      <div class="col-sm-6 work big"><img :src="works[1].img"/>
+        <div class="texts">
+          <h4 class="title">{{works[1].name}}</h4>
+          <p class="content" v-html="works[1].content.substr(0,39)"></p>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="col-sm-6 work" v-for="w in works.slice(2,6)"><img :src="w.img" alt=""/>
+          <div class="texts">
+            <h4 class="title">{{w.name}}</h4>
+          </div>
+        </div>
+      </div>
+    </div><img class="whitemountain" src="http://awiclass.monoame.com/img/margin/m_works.svg"/>
+  </div>
+</section>
+<section id="section_contact"><img class="cat" id="cat_blue" src="http://awiclass.monoame.com/catpic/cat_blue_cat.png"/><img class="cat" id="cat_grey" src="http://awiclass.monoame.com/catpic/cat_grey_cat.png"/><img class="cat" id="cat_yellow" src="http://awiclass.monoame.com/catpic/cat_yellow_cat.png	"/>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="mails">
+          <div class="mailcover"><img src="http://awiclass.monoame.com/img/webpic/w_mail_cover.svg"/></div>
+          <div class="mailcontact">
+            <h5>Dear Yellow Studio</h5>
+            <label>Name</label>
+            <input/>
+            <label>Email</label>
+            <input/>
+            <label>Content</label>
+            <textarea></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <h2>CONTACT</h2><br/>
+        <p>If you have any question about us,<br>Don`t hestitate to contact us !</p><br/>
+        <p>YELLOWSTUDIO@gmail.com<br>ADDRESS: TAIWAN, TAIPEI , XORO Road<br>Phone: 02-12345678</p>
+      </div>
+    </div>
+  </div>
+</section>
+<footer id="footer">     <img class="icon" src="http://awiclass.monoame.com/img/webpic/w_icon_black.svg"/></footer>
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

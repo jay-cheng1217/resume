@@ -1,0 +1,28 @@
+$color_blue: #282f44 ;
+$color_brown: #e6af2e ;
+$color_yellow: #f5d061 ;
+$color_white: #ececec;
+// --------------------------- 
+
+@mixin ab_center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+@mixin size($w,$h) {
+    width: $w;
+    height: $h;
+}
+// -------------------------
+
+html,body{
+    // 捲軸不要左右移動
+    overflow-x: hidden;
+    font-size: 16px;
+}
+header{
+    position: relative;
+    background-color: $color_blue;
+}

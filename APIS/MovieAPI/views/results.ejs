@@ -1,0 +1,30 @@
+<h1>Movie Results</h1>
+
+<!-- 先依年份排序 -->
+<% for(let i = 0 ; i < data["Search"].length - 1 ; i++) { %>
+  <% for(let j = i + 1 ; j < data["Search"].length ; j++) { %>
+    <% if(data["Search"][i]['Year'] < data["Search"][j]['Year']) { %>
+      <% let temp = data["Search"][i]; %>
+      <% data["Search"][i] = data["Search"][j]; %>
+      <% data["Search"][j] = temp; %>
+    <% } %>
+  <% } %>
+<% } %>
+
+<!-- 結果顯示 -->
+<div style="display: flex; flex-wrap: wrap; gap: 20px;">
+  <% data["Search"].forEach(function(movie) { %>
+    <div style="width: 200px; border: 1px solid #ccc; padding: 10px; border-radius: 8px; text-align: center;">
+      <img src="<%= movie.Poster !== 'N/A' ? movie.Poster : 'https://via.placeholder.com/150x220?text=No+Image' %>" 
+           alt="Poster" 
+           style="width: 100%; height: auto; border-radius: 4px;" />
+      <h3 style="margin: 10px 0 5px;"><%= movie.Title %></h3>
+      <p style="color: gray;"><%= movie.Year %></p>
+    </div>
+  <% }) %>
+</div>
+
+<!-- 回首頁 -->
+<div style="margin-top: 30px;">
+  <a href="/" style="text-decoration: none; font-weight: bold;"> Back to Search Page</a>
+</div>

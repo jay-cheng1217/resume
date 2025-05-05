@@ -1,0 +1,252 @@
+//顏色定義
+$color_blue: #282f44
+$color_brown: #E6AF2E
+$color_yellow: #f5d061
+$color_white: #ececec
+*
+  font-family: 'Oswald',微軟正黑體
+  // border: solid 1px !important
+
+@mixin ab_center
+  position: absolute
+  left: 50%
+  top: 50%
+  transform: translate(-50%,-50%)
+@mixin size($w,$h)
+  width: $w
+  height: $h
+body,html
+  overflow-x: hidden
+  margin: 0
+  
+  font-size: 16px
+header
+  position: relative
+  background-color: $color_blue
+  text-align: center
+  .icon
+    width: 80%
+    max-width: 250px
+    padding: 250px 0px
+  .mountain
+    position: absolute
+    width: 100%
+    bottom: 0px
+    right: 0px
+    animation: upin 2s both
+    
+  @keyframes upin 
+    0%
+      bottom: -100px
+    100%
+      bottom: 0px
+  .explore
+    +ab_center
+    color: $color_yellow
+    top: 85%
+    font-size: 16px
+    opacity: 0
+    transition: 0.5s
+    &:after
+      display: block
+      content: "v"
+      transform: scaleX(1.2) scaleY(0.5)
+    &.at_top
+      opacity: 1
+      
+nav.navbar
+  transition: 0.5s
+  
+  a
+    transition: 0.5s
+nav.navbar.at_top
+  background-color: transparent
+  a , a:visited
+    color: $color_white
+// -------------------------
+section
+  padding: 60px 0px
+  position: relative
+// -------------------------
+section#section_about
+  background-color: $color_brown
+  .container
+    transform: rotate(15deg) scale(0.9)
+  .text1 
+    font-size: 80px
+    transition: 0.1s 
+  .text2
+    font-size: 35px
+    transition: 0.2s
+  .text3
+    font-size: 50px
+    text-align: right
+    transition: 0.3s
+  #cat
+    width: 30%
+    min-width: 300px
+    position: absolute
+    right: 20px
+    bottom: -3px
+    
+  #cross
+    position: absolute
+    z-index: 8
+    &:before,&:after
+      position: absolute
+      content: ""
+      display: block
+      width: 60px
+      height: 15px
+      background-color: #FFF
+      left: 50%
+      top: 50%
+      transform: translate(-50%,-50%) rotate(45deg)
+    &:after
+      transform: translate(-50%,-50%) rotate(-45deg)
+  .tri
+    transform: rotate(-15deg)
+  .tri1
+    width: 350px
+  .tri2
+    width: 20px
+    margin-left: 15px
+  .tri3
+    width: 150px
+    margin-left: 70%
+  .tri4
+    width: 70px
+    margin-left: 100%
+  .tri5
+    width: 80px
+    margin-left: 100%
+  .bottommountain
+    width: 60%
+    position: absolute
+    top: calc(100% - 2px)
+    z-index: 3
+    
+  .btn-area
+    height: 150px
+    a
+      +ab_center
+      transform: translate(-50%,-50%) rotate(10deg)
+    
+// -------------------------
+section#section_service
+  background-color: $color_white
+  h1
+    background-color: $color_blue
+    color: $color_white
+    font-size: 24px
+    padding: 5px 15px
+    display: inline-block
+  .col-sm-4
+    text-align: center
+    .icon_service
+      width: 60%
+    h3
+      color: $color_brown
+      border: solid 1px $color_brown
+      
+// -------------------------
+section#section_works
+  background-color: $color_white
+  h1
+    background-color: $color_blue
+    color: $color_white
+    font-size: 24px
+    padding: 5px 15px
+    display: inline-block
+  .work
+    height: 230px
+    overflow: hidden
+    cursor: pointer
+    padding: 5px
+    position: relative
+    @media screen and (max-width: 700px)
+      height: 460px
+      width: 100%
+    &.big
+      height: 460px
+    &:before
+      content: ""
+      display: block
+      +ab_center
+      +size(100%,100%)
+      background-color: rgba(black,0.7)
+      z-index: 4
+      opacity: 0
+      transition: 0.5s
+    &:hover
+      &:before,.texts
+        opacity: 1
+    img
+      height: 100%
+      +ab_center
+      width: 100%
+      
+  .texts
+    +ab_center
+    color: white
+    z-index: 8
+    opacity: 0
+    transition: 0.5s
+  .whitemountain
+    position: absolute
+    width: 60%
+    right: 0
+    top: 100%
+    z-index: 3
+// -------------------------
+section#section_contact
+  .cat
+    width: 150px
+    position: absolute
+    bottom: -50px
+    transition: 0.5s
+  #cat_blue
+    right: 240px
+    z-index: 4
+  #cat_grey
+    right: 100px
+  #cat_yellow
+    right: 170px
+  background-color: $color_blue
+  overflow: hidden
+  .container
+    color: $color_white
+    .mails
+      height: 400px
+      max-width: 500px
+      .mailcover
+        +ab_center
+        top: 70%
+        transform: scale(2.1) rotate(5deg) translate(-50%,-50%)
+        img
+          width: 120%
+      .mailcontact
+        background-color: $color_white
+        color: $color_blue
+        padding: 20px
+        padding-left: 40px
+        position: absolute
+        width: 90%
+        transform: translateX(-30px)
+        
+      input,textarea
+        margin: 5px
+        display: block
+        background-color: transparent
+        border: none
+        border: solid 3px $color_blue
+      textarea
+        +size(100%,140px)
+footer
+  position: relative
+  background-color: $color_brown
+  text-align: center
+  .icon
+    width: 80%
+    max-width: 250px
+    padding: 80px 0px
