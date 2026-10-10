@@ -1,0 +1,5 @@
+pywin32>=306
+# 選用：桌面通知
+win11toast>=0.36
+# 選用：analyzer.backend = "api" 時才需要
+anthropic

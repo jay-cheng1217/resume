@@ -1,0 +1,80 @@
+# 複製成 config.toml 後再修改。config.toml 已列入 .gitignore，不會被提交。
+
+[me]
+# 讓 Claude 了解你的角色，判斷優先順序與建議回覆會更準
+role = "筆電產品 PM，兼任後端開發。負責產品規格、時程、與 RD / 品保 / 業務 / 供應商溝通。"
+# 你的信箱（判斷你是 To 還是 CC 用），可填多個
+addresses = ["your.name@example.com"]
+
+[outlook]
+# 要監看的資料夾。"Inbox" = 收件匣；子資料夾用斜線，例如 "Inbox/專案A"
+folders = ["Inbox"]
+# 第一次啟動時往回補抓幾小時的信
+lookback_hours = 24
+# 補抓輪詢間隔（分鐘）。即時新信由 Outlook 事件觸發，這裡是防漏信的保險
+poll_minutes = 5
+# 單一資料夾每次最多掃描幾封
+max_scan = 200
+
+[analyzer]
+# "claude_cli"：呼叫本機 Claude Code（claude -p），用你登入的 Claude 帳號
+# "api"：用 Anthropic API（需設定環境變數 ANTHROPIC_API_KEY）
+backend = "claude_cli"
+model = "claude-opus-5-5"
+# 只有 backend = "api" 會用到：low / medium / high
+effort = "medium"
+timeout_seconds = 300
+# 信件內文送出前截斷的字數（已先移除引用的歷史信件）
+max_body_chars = 6000
+# claude 執行檔路徑；留空則自動從 PATH 尋找
+claude_path = ""
+
+[priority]
+# 這些寄件者或網域的信件，優先等級至少為 P2
+vip_senders = ["boss@example.com", "@important-customer.com"]
+# 主旨或內文出現這些字，優先等級至少為 P2
+urgent_keywords = ["urgent", "緊急", "ASAP", "escalation", "客訴", "停線", "量產"]
+
+[filters]
+# 符合以下條件的信不送去分析，直接記為 P4（電子報、系統通知等）
+skip_senders = ["noreply@", "no-reply@", "newsletter@"]
+skip_subject_keywords = ["Newsletter", "電子報", "Automatic reply", "自動回覆"]
+# 機密信件不送給 Claude，只記錄「需人工處理」並通知你
+sensitive_keywords = ["機密", "Confidential", "Strictly Confidential", "NDA", "薪資"]
+# Outlook 的機密性欄位為「私人 / 機密」時也視為機密
+treat_outlook_sensitivity_as_sensitive = true
+
+# 「找誰要資料」的對照表。Claude 只會從這裡推薦人選，查無對應時只給角色。
+[[directory]]
+topic = "BIOS / EC 韌體"
+contact = "請填姓名或窗口"
+
+[[directory]]
+topic = "機構 / 散熱"
+contact = "請填姓名或窗口"
+
+[[directory]]
+topic = "品保 / 可靠度測試"
+contact = "請填姓名或窗口"
+
+[[directory]]
+topic = "業務 / 客戶需求"
+contact = "請填姓名或窗口"
+
+[actions]
+# 在 Outlook 信件上加上分類標籤（例如「P1-緊急」）。會修改信件屬性
+set_outlook_category = false
+# 自動在 Outlook 草稿匣建立建議回覆（只存草稿，絕不會自動寄出）
+create_reply_draft = false
+# 建立草稿的最低優先等級（P1 最高）
+draft_min_priority = "P2"
+# 桌面通知的最低優先等級（需安裝 win11toast）
+notify_min_priority = "P2"
+
+[digest]
+# 每天在這些時間產生彙整報告
+times = ["09:00", "13:30", "17:30"]
+# 是否用 Outlook 把報告寄給自己
+email_to_self = true
+# 報告會列出最近幾天內「P1/P2 且需回覆但尚未回覆」的信
+followup_days = 3
