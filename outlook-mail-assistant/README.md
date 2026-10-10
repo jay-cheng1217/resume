@@ -34,6 +34,10 @@
 | Python | 3.11 以上 |
 | Claude | 二擇一：本機 Claude Code（用你登入的 Claude 帳號），或 Anthropic API Key |
 
+## 第零步：檢查 Outlook 能不能被讀取
+
+打開 Outlook，然後對 `check_outlook.bat` 點兩下。它會安裝 pywin32 並印出 Outlook 帳號與收件匣信件數，不讀取信件內容。看到 `[成功]` 再繼續。
+
 ## 安裝
 
 ```powershell
